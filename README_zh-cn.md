@@ -4,7 +4,7 @@
 ## Disclaimer
 这个工具不会帮助你盗版游戏；它要求你有一个微软帐户，可以用来从商店下载《Minecraft》。
 ## Prerequisites
-- A Microsoft account connected to Microsoft Store which **owns Minecraft for Windows 10**
+- 连接到微软商店的微软帐户，该商店拥有**Minecraft for Windows 10**
 - **Administrator permissions** on your user account (or access to an account that has)
 - **Developer mode** enabled for app installation in Windows 10 Settings
 - If you want to be able to use beta versions, you'll additionally need to **subscribe to the Minecraft Beta program using Xbox Insider Hub**.
