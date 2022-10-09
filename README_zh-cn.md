@@ -2,8 +2,7 @@
 此工具允许您并行安装多个版本的Minecraft:Windows 10 Edition（Bedrock）。如果您想测试测试版、发行版或其他版本，而不需要卸载和重新安装游戏，这将非常有用。
 
 ## Disclaimer
-This tool will **not** help you to pirate the game; it requires that you have a Microsoft account which can be used to download Minecraft from the Store.
-
+这个工具不会帮助你盗版游戏；它要求你有一个微软帐户，可以用来从商店下载《Minecraft》。
 ## Prerequisites
 - A Microsoft account connected to Microsoft Store which **owns Minecraft for Windows 10**
 - **Administrator permissions** on your user account (or access to an account that has)
