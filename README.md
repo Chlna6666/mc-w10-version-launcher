@@ -1,7 +1,5 @@
 # MCLauncher
-
-This tool allows you to install several versions of Minecraft: Windows 10 Edition (Bedrock) side-by-side.
-This is useful if you want to test beta versions, releases or anything else side-by-side without needing to uninstall and reinstall the game.
+此工具允许您并行安装多个版本的Minecraft:Windows 10 Edition（Bedrock）。如果您想测试测试版、发行版或其他版本，而不需要卸载和重新安装游戏，这将非常有用。
 
 ## Disclaimer
 This tool will **not** help you to pirate the game; it requires that you have a Microsoft account which can be used to download Minecraft from the Store.
