@@ -17,7 +17,7 @@
 - 运行 `MCLauncher.exe` 启动器.
 
 ## 开发
-懒得翻译中文
+懒得翻译
 
 ## Compiling the launcher yourself
 You'll need Visual Studio with Windows 10 SDK version 10.0.17763 and .NET Framework 4.6.1 SDK installed. You can find these in the Visual Studio Installer if you don't have them out of the box.
