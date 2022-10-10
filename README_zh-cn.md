@@ -7,8 +7,8 @@
 这个工具不会帮助你盗版游戏；它要求你有一个微软帐户并且拥有正版，可以用来从商店下载《Minecraft》。
 ## 使用条件
 - 连接到微软商店的微软帐户，该商店拥有**Minecraft for Windows 10**
-- **Administrator permissions** 在您的用户帐户上（或访问具有的帐户）
-- **Developer mode** 在Windows 10设置中启用应用程序安装（设置开发者模式）
+- **管理员权限** 在您的用户帐户上（或访问具有的帐户）
+- **开发者模式** 在Windows 10设置中启用应用程序安装（设置开发者模式）
 - 如果你想使用测试版，你还需要 **有测试版的权限（需要在使用Xbox Insider Hub订阅Minecraft Beta）**.
 - 需要安装[Microsoft Visual C++ Redistributable](https://aka.ms/vs/16/release/vc_redist.x64.exe).
 
