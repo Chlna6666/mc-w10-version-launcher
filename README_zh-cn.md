@@ -5,10 +5,10 @@
 这个工具不会帮助你盗版游戏；它要求你有一个微软帐户，可以用来从商店下载《Minecraft》。
 ## Prerequisites
 - 连接到微软商店的微软帐户，该商店拥有**Minecraft for Windows 10**
-- **Administrator permissions** on your user account (or access to an account that has)
-- **Developer mode** enabled for app installation in Windows 10 Settings
-- If you want to be able to use beta versions, you'll additionally need to **subscribe to the Minecraft Beta program using Xbox Insider Hub**.
-- [Microsoft Visual C++ Redistributable](https://aka.ms/vs/16/release/vc_redist.x64.exe) installed.
+- **Administrator permissions** 在您的用户帐户上（或访问具有的帐户）
+- **Developer mode** 在Windows 10设置中启用应用程序安装（设置开发者模式）
+- 如果你想使用测试版，你还需要 **有测试版的权限（需要在使用Xbox Insider Hub订阅Minecraft Beta）**.
+- 需要安装**[Microsoft Visual C++ Redistributable](https://aka.ms/vs/16/release/vc_redist.x64.exe)**.
 
 ## Setup
 - Download the latest release from the [Releases](https://github.com/MCMrARM/mc-w10-version-launcher/releases) section. Unzip it somewhere.
