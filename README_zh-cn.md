@@ -8,7 +8,7 @@
 - **Administrator permissions** 在您的用户帐户上（或访问具有的帐户）
 - **Developer mode** 在Windows 10设置中启用应用程序安装（设置开发者模式）
 - 如果你想使用测试版，你还需要 **有测试版的权限（需要在使用Xbox Insider Hub订阅Minecraft Beta）**.
-- 需要安装**[Microsoft Visual C++ Redistributable](https://aka.ms/vs/16/release/vc_redist.x64.exe)**.
+- 需要安装**[Microsoft Visual C++ Redistributable]**(https://aka.ms/vs/16/release/vc_redist.x64.exe).
 
 ## Setup
 - Download the latest release from the [Releases](https://github.com/MCMrARM/mc-w10-version-launcher/releases) section. Unzip it somewhere.
