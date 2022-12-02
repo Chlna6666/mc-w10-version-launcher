@@ -243,7 +243,7 @@ namespace MCLauncher {
                 Debug.WriteLine("BackupMinecraftDataForRemoval error: " + tmpDir + " already exists");
                 Process.Start("explorer.exe", tmpDir);
                 MessageBox.Show("用于备份 MC 数据的临时目录已存在。这可能意味着我们上次备份数据失败。请手动备份目录。");
-                throw new Exception("Temporary dir exists");
+                throw new Exception("存在临时目录");
             }
             Debug.WriteLine("Moving Minecraft data to: " + tmpDir);
             Directory.Move(data.LocalFolder.Path, tmpDir);
