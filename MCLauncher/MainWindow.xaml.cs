@@ -26,7 +26,7 @@ namespace MCLauncher {
 
         private static readonly string PREFS_PATH = @"preferences.json";
         private static readonly string IMPORTED_VERSIONS_PATH = @"imported_versions";
-        private static readonly string VERSIONS_API = "https://ghproxy.com/https://raw.githubusercontent.com/MCMrARM/mc-w10-versiondb/master/versions.json.min";
+        private static readonly string VERSIONS_API = "https://raw.githubusercontents.com/MCMrARM/mc-w10-versiondb/master/versions.json.min";
 
         private VersionList _versions;
         public Preferences UserPrefs { get; }
