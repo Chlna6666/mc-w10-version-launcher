@@ -16,14 +16,11 @@
 - 下载最新版[Releases](https://github.com/MCMrARM/mc-w10-version-launcher/releases) 解压使用.
 - 运行 `MCLauncher.exe` 启动器.
 
-## 开发
-懒得翻译
+## 自行编译
+你需要安装 Visual Studio、 Windows 10 SDK 10.0.17763 和 .NET Framework SDK 4.6.1。如果你没有安装，你可以在 Visual Studio Installer 里找到它们，开箱即用。
+只要你没有做任何奇怪的事情，该项目应该在 VS 中开箱即用。
 
-## Compiling the launcher yourself
-You'll need Visual Studio with Windows 10 SDK version 10.0.17763 and .NET Framework 4.6.1 SDK installed. You can find these in the Visual Studio Installer if you don't have them out of the box.
-The project should build out of the box with VS as long as you haven't done anything bizarre.
+## 常见问题
+**这个程序能多开基岩版 MC 吗？**
 
-## Frequently Asked Questions
-**Does this allow running multiple instances of Minecraft: Bedrock at the same time?**
-
-At the time of writing, no. It allows you to _install_ multiple versions, but only one version can run at a time.
+截止到写这篇文档时是不行的。它允许你_安装_多个版本，但一次只能运行一个版本。
