@@ -11,7 +11,7 @@
         MinWidth="400"
         WindowStartupLocation="CenterOwner"
         FocusManager.FocusedElement="{Binding ElementName=EndpointTextBox}"
-        Title="Set version list endpoint...">
+        Title="设置版本列表API">
     <Grid Margin="5,5,5,5">
         <Grid.Resources>
             <Style TargetType="{x:Type Button}">
@@ -32,12 +32,12 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Label Content="Set the URL to get versions.json from (empty for default):" Grid.Row="0" Padding="0,5,0,5"/>
+        <Label Content="设置URL以从中获取versions.json（默认为空）：" Grid.Row="0" Padding="0,5,0,5"/>
         <TextBox Name="EndpointTextBox" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,5,0,5" />
 
         <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5,0,0">
-            <Button Name="okButton" Click="okButton_Click" IsDefault="True">OK</Button>
-            <Button Name="cancelButton" Click="cancelButton_Click" IsCancel="True">Cancel</Button>
+            <Button Name="okButton" Click="okButton_Click" IsDefault="True">确定</Button>
+            <Button Name="cancelButton" Click="cancelButton_Click" IsCancel="True">取消</Button>
         </StackPanel>
     </Grid>
 </Window>

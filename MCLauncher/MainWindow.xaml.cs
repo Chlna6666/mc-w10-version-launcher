@@ -107,13 +107,13 @@ namespace MCLauncher {
                 Debug.WriteLine("List cache load failed:\n" + e.ToString());
             }
 
-            LoadingProgressLabel.Content = "Updating versions list from " + _versions.VersionsApi;
+            LoadingProgressLabel.Content = "更新版本列表从 " + _versions.VersionsApi;
             LoadingProgressBar.Value = 2;
             try {
                 await _versions.DownloadList();
             } catch (Exception e) {
                 Debug.WriteLine("List download failed:\n" + e.ToString());
-                MessageBox.Show("Failed to update version list from the internet. Some new versions might be missing.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("无法从互联网更新版本列表。某些新版本可能无法下载。", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
             LoadingProgressLabel.Content = "Loading imported versions";
@@ -138,10 +138,10 @@ namespace MCLauncher {
                     foreach (var version in _versions) {
                         if (version.IsImported && version.GameDirectory == directory) {
                             if (version.IsStateChanging) {
-                                MessageBox.Show("A version with the same name was already imported, and is currently being modified. Please wait a few moments and try again.", "Error");
+                                MessageBox.Show("具有相同名称的版本已导入，并且当前正在修改。请稍等片刻，然后重试。", "Error");
                                 return;
                             }
-                            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("A version with the same name was already imported. Do you want to delete it ?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+                            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("已导入具有相同名称的版本。是否要删除它？", "确认删除", System.Windows.MessageBoxButton.YesNo);
                             if (messageBoxResult == MessageBoxResult.Yes) {
                                 await Remove(version);
                                 found = true;
@@ -152,7 +152,7 @@ namespace MCLauncher {
                         }
                     }
                     if (!found) {
-                        MessageBox.Show("The destination path for importing already exists and doesn't contain a Minecraft installation known to the launcher. To avoid loss of data, importing was aborted. Please remove the files manually.", "Error");
+                        MessageBox.Show("导入的目标路径已经存在，并且不包含启动器已知的Minecraft安装。为了避免数据丢失，导入被中止。请手动删除这些文件。", "Error");
                         return;
                     }
                 }
@@ -164,7 +164,7 @@ namespace MCLauncher {
                         ZipFile.ExtractToDirectory(openFileDlg.FileName, directory);
                     } catch (InvalidDataException ex) {
                         Debug.WriteLine("Failed extracting appx " + openFileDlg.FileName + ": " + ex.ToString());
-                        MessageBox.Show("Failed to import appx " + openFileDlg.SafeFileName + ". It may be corrupted or not an appx file.\n\nExtraction error: " + ex.Message, "Import failure");
+                        MessageBox.Show("未能导入应用 " + openFileDlg.SafeFileName + "。它可能已损坏或不是 appx 文件。\n\n提取错误：  " + ex.Message, "导入失败");
                         return;
                     } finally {
                         versionEntry.StateChangeInfo = null;
@@ -190,7 +190,7 @@ namespace MCLauncher {
                     await ReRegisterPackage(v.GamePackageFamily, gameDir);
                 } catch (Exception e) {
                     Debug.WriteLine("App re-register failed:\n" + e.ToString());
-                    MessageBox.Show("App re-register failed:\n" + e.ToString());
+                    MessageBox.Show("应用重新注册失败:\n" + e.ToString());
                     _hasLaunchTask = false;
                     v.StateChangeInfo = null;
                     return;
@@ -205,7 +205,7 @@ namespace MCLauncher {
                     v.StateChangeInfo = null;
                 } catch (Exception e) {
                     Debug.WriteLine("App launch failed:\n" + e.ToString());
-                    MessageBox.Show("App launch failed:\n" + e.ToString());
+                    MessageBox.Show("应用启动失败:\n" + e.ToString());
                     _hasLaunchTask = false;
                     v.StateChangeInfo = null;
                     return;
@@ -242,7 +242,7 @@ namespace MCLauncher {
             if (Directory.Exists(tmpDir)) {
                 Debug.WriteLine("BackupMinecraftDataForRemoval error: " + tmpDir + " already exists");
                 Process.Start("explorer.exe", tmpDir);
-                MessageBox.Show("The temporary directory for backing up MC data already exists. This probably means that we failed last time backing up the data. Please back the directory up manually.");
+                MessageBox.Show("用于备份 MC 数据的临时目录已存在。这可能意味着我们上次备份数据失败。请手动备份目录。");
                 throw new Exception("Temporary dir exists");
             }
             Debug.WriteLine("Moving Minecraft data to: " + tmpDir);
@@ -253,7 +253,7 @@ namespace MCLauncher {
             foreach (var f in Directory.EnumerateFiles(from)) {
                 string ft = Path.Combine(to, Path.GetFileName(f));
                 if (File.Exists(ft)) {
-                    if (MessageBox.Show("The file " + ft + " already exists in the destination.\nDo you want to replace it? The old file will be lost otherwise.", "Restoring data directory from previous installation", MessageBoxButton.YesNo) != MessageBoxResult.Yes)
+                    if (MessageBox.Show("文件 " + ft + " 目标中已存在\n是否要替换它？否则，旧文件将丢失。", "从以前的安装还原数据目录", MessageBoxButton.YesNo) != MessageBoxResult.Yes)
                         continue;
                     File.Delete(ft);
                 }
@@ -262,7 +262,7 @@ namespace MCLauncher {
             foreach (var f in Directory.EnumerateDirectories(from)) {
                 string tp = Path.Combine(to, Path.GetFileName(f));
                 if (!Directory.Exists(tp)) {
-                    if (File.Exists(tp) && MessageBox.Show("The file " + tp + " is not a directory. Do you want to remove it? The data from the old directory will be lost otherwise.", "Restoring data directory from previous installation", MessageBoxButton.YesNo) != MessageBoxResult.Yes)
+                    if (File.Exists(tp) && MessageBox.Show("文件 " + tp + " 不是目录。是否要删除它？否则，旧目录中的数据将丢失。", "从以前的安装恢复数据目录", MessageBoxButton.YesNo) != MessageBoxResult.Yes)
                         continue;
                     Directory.CreateDirectory(tp);
                 }
@@ -346,12 +346,12 @@ namespace MCLauncher {
                         Debug.WriteLine("Authentication complete");
                     } catch (WUTokenHelper.WUTokenException e) {
                         Debug.WriteLine("Authentication failed:\n" + e.ToString());
-                        MessageBox.Show("Failed to authenticate because: " + e.Message, "Authentication failed");
+                        MessageBox.Show("无法进行身份验证，因为:" + e.Message, "身份验证失败");
                         v.StateChangeInfo = null;
                         return;
                     } catch (Exception e) {
                         Debug.WriteLine("Authentication failed:\n" + e.ToString());
-                        MessageBox.Show(e.ToString(), "Authentication failed");
+                        MessageBox.Show(e.ToString(), "身份验证失败");
                         v.StateChangeInfo = null;
                         return;
                     }
@@ -368,17 +368,17 @@ namespace MCLauncher {
                     }, cancelSource.Token);
                     Debug.WriteLine("Download complete");
                 } catch (BadUpdateIdentityException) {
-                    Debug.WriteLine("Download failed due to failure to fetch download URL");
+                    Debug.WriteLine("由于无法获取下载 URL，下载失败");
                     MessageBox.Show(
-                        "Unable to fetch download URL for version." +
-                        (v.VersionType == VersionType.Beta ? "\nFor beta versions, please make sure your account is subscribed to the Minecraft beta programme in the Xbox Insider Hub app." : "")
+                        "无法获取版本的下载 URL。" +
+                        (v.VersionType == VersionType.Beta ? "\n对于测试版，请确保您的帐户已订阅 Xbox 预览体验中心应用程序中的 Minecraft 测试版计划。" : "")
                     );
                     v.StateChangeInfo = null;
                     return;
                 } catch (Exception e) {
                     Debug.WriteLine("Download failed:\n" + e.ToString());
                     if (!(e is TaskCanceledException))
-                        MessageBox.Show("Download failed:\n" + e.ToString());
+                        MessageBox.Show("下载失败:\n" + e.ToString());
                     v.StateChangeInfo = null;
                     return;
                 }
@@ -398,7 +398,7 @@ namespace MCLauncher {
                     }
                 } catch (Exception e) {
                     Debug.WriteLine("Extraction failed:\n" + e.ToString());
-                    MessageBox.Show("Extraction failed:\n" + e.ToString());
+                    MessageBox.Show("提取失败:\n" + e.ToString());
                     v.StateChangeInfo = null;
                     return;
                 }
@@ -449,7 +449,7 @@ namespace MCLauncher {
 
         private void MenuItemOpenLogFileClicked(object sender, RoutedEventArgs e) {
             if (!File.Exists(@"Log.txt")) {
-                MessageBox.Show("Log file not found", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("未找到日志文件", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             } else 
                 Process.Start(@"Log.txt");
         }
@@ -460,14 +460,14 @@ namespace MCLauncher {
 
         private void MenuItemCleanupForMicrosoftStoreReinstallClicked(object sender, RoutedEventArgs e) {
             var result = MessageBox.Show(
-                "Versions of Minecraft installed by the launcher will be uninstalled.\n" +
-                    "This will allow you to reinstall Minecraft from Microsoft Store. Your data (worlds, etc.) won't be removed.\n\n" +
-                    "Are you sure you want to continue?",
-                "Uninstall all versions",
+                "启动器安装的我的世界版本将被卸载。\n" +
+                    "这将允许您从微软商店重新安装我的世界。您的数据（世界等）不会被删除。\n\n" +
+                    "是否确实要继续？",
+                "卸载所有版本",
                 MessageBoxButton.OKCancel
             );
             if (result == MessageBoxResult.OK) {
-                Debug.WriteLine("Starting uninstall of ALL versions!");
+                Debug.WriteLine("开始卸载所有版本！\"");
                 foreach (var version in _versions) {
                     if (version.IsInstalled) {
                         InvokeRemove(version);
@@ -566,7 +566,7 @@ namespace MCLauncher {
                 get { return _isNew; }
                 set {
                     _isNew = value;
-                    OnPropertyChanged("IsNew");
+                    OnPropertyChanged("是新的");
                 }
             }
             public bool IsImported {
@@ -586,15 +586,15 @@ namespace MCLauncher {
                 get {
                     string typeTag = "";
                     if (VersionType == VersionType.Beta)
-                        typeTag = "(beta)";
+                        typeTag = "(测试)";
                     else if (VersionType == VersionType.Preview)
-                        typeTag = "(preview)";
-                    return Name + (typeTag.Length > 0 ? " " + typeTag : "") + (IsNew ? " (NEW!)" : "");
+                        typeTag = "(预览)";
+                    return Name + (typeTag.Length > 0 ? " " + typeTag : "") + (IsNew ? " (最新的!)" : "");
                 }
             }
             public string DisplayInstallStatus {
                 get {
-                    return IsInstalled ? "Installed" : "Not installed";
+                    return IsInstalled ? "已安装" : "未安装";
                 }
             }
 
@@ -612,7 +612,7 @@ namespace MCLauncher {
             public bool IsStateChanging => StateChangeInfo != null;
 
             public void UpdateInstallStatus() {
-                OnPropertyChanged("IsInstalled");
+                OnPropertyChanged("已安装");
             }
 
         }
@@ -672,15 +672,16 @@ namespace MCLauncher {
 
             public string DisplayStatus {
                 get {
-                    switch (_versionState) {
-                        case VersionState.Initializing: return "Preparing...";
+                    switch (_versionState)
+                    {
+                        case VersionState.Initializing: return "准备中...";
                         case VersionState.Downloading:
-                            return "Downloading... " + (DownloadedBytes / 1024 / 1024) + "MiB/" + (TotalSize / 1024 / 1024) + "MiB";
-                        case VersionState.Extracting: return "Extracting...";
-                        case VersionState.Registering: return "Registering package...";
-                        case VersionState.Launching: return "Launching...";
-                        case VersionState.Uninstalling: return "Uninstalling...";
-                        default: return "Wtf is happening? ...";
+                            return "下载中... " + (DownloadedBytes / 1024 / 1024) + "MiB/" + (TotalSize / 1024 / 1024) + "MiB";
+                        case VersionState.Extracting: return "提取中...";
+                        case VersionState.Registering: return "注册包...";
+                        case VersionState.Launching: return "启动中...";
+                        case VersionState.Uninstalling: return "卸载中...";
+                        default: return "发生了什么? ...";
                     }
                 }
             }
