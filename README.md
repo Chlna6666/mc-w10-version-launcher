@@ -2,6 +2,24 @@
 
 [简体中文](README_zh-cn.md) | English
 
+## ⚠️ Maintenance notice: this repository is no longer maintained
+
+> [!IMPORTANT]
+> **This repository (Chlna6666/mc-w10-version-launcher) is no longer maintained.** No further feature updates, bug fixes, or compatibility updates are planned. The existing code remains available for reference and legacy use, but compatibility with future Minecraft Bedrock or Windows versions is not guaranteed.
+>
+> **For GDK versions, experimental Linux support, and ongoing development, please use [Better Minecraft Bedrock Launcher (BMCBL)](https://github.com/Chlna6666/Better-Minecraft-Bedrock-Launcher/).**
+
+BMCBL is a separately developed Minecraft Bedrock launcher built with Rust and GPUI. It supports UWP and GDK version management on Windows, game downloads and installation, resource and world management, and additional launcher features. Linux GDK game launching via Proton / Wine is **experimental**; Xbox achievements, online status, and some account functionality are not fully supported.
+
+- **Project:** [Better Minecraft Bedrock Launcher](https://github.com/Chlna6666/Better-Minecraft-Bedrock-Launcher/)
+- **Downloads and releases:** [BMCBL Releases](https://github.com/Chlna6666/Better-Minecraft-Bedrock-Launcher/releases)
+
+BMCBL is an independent project, not an in-place update or direct replacement of this repository. For the current feature status and known limitations, refer to the [BMCBL README](https://github.com/Chlna6666/Better-Minecraft-Bedrock-Launcher/#readme).
+
+Thanks to everyone who has used or supported this repository.
+
+---
+
 This tool allows you to install several versions of Minecraft: Windows 10 Edition (Bedrock) side-by-side.
 This is useful if you want to test beta versions, releases or anything else side-by-side without needing to uninstall and reinstall the game.
 
